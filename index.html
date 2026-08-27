@@ -1,0 +1,3144 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GAME ARCHIVE</title>
+
+<style>
+
+/* =========================================================
+   基础
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Microsoft YaHei",
+        "PingFang SC",
+        "Noto Sans SC",
+        Arial,
+        sans-serif;
+
+    background: #fff8fb;
+    color: #402c35;
+
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   顶部导航
+========================================================= */
+
+header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    z-index: 9999;
+
+    background:
+        rgba(255,255,255,.92);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid #f3dbe4;
+}
+
+.nav {
+
+    width: min(1200px, calc(100% - 30px));
+
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.logo {
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    color: #e75c8c;
+}
+
+.logo span {
+    color: #4b3540;
+}
+
+.nav-links {
+
+    display: flex;
+
+    gap: 24px;
+
+    list-style: none;
+}
+
+.nav-links a {
+
+    font-size: 13px;
+
+    color: #775d68;
+
+    transition: .25s;
+}
+
+.nav-links a:hover {
+
+    color: #e65c8d;
+}
+
+
+/* =========================================================
+   通用
+========================================================= */
+
+.container {
+
+    width: min(1200px, calc(100% - 30px));
+
+    margin: auto;
+}
+
+section {
+
+    padding: 90px 0;
+
+    border-bottom:
+        1px solid #f4dfe7;
+}
+
+.section-title {
+
+    margin-bottom: 38px;
+}
+
+.section-title small {
+
+    display: block;
+
+    color: #df6a94;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+
+    margin-top: 4px;
+
+    font-size: 38px;
+
+    color: #3d2932;
+}
+
+.section-title h2::before {
+
+    content: "## ";
+
+    color: #f0a9bf;
+}
+
+
+/* =========================================================
+   按钮
+========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 10px 23px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid #edb5ca;
+
+    background: #fff;
+
+    color: #dc5585;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.btn:hover {
+
+    background: #ea628f;
+
+    color: white;
+
+    border-color: #ea628f;
+
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+
+    background: #eb628f;
+
+    color: white;
+
+    border-color: #eb628f;
+}
+
+
+/* =========================================================
+   01 游戏 Hero
+========================================================= */
+
+.game-hero {
+
+    min-height: 680px;
+
+    padding-top: 70px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255,242,247,.98) 0%,
+            rgba(255,242,247,.82) 38%,
+            rgba(255,242,247,.18) 100%
+        ),
+
+        url(
+        "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2000&q=90"
+        )
+
+        center / cover;
+}
+
+.game-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -150px;
+    top: 100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,157,191,.28);
+
+    filter: blur(80px);
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1200px, calc(100% - 30px));
+
+    margin: auto;
+}
+
+.hero-tag {
+
+    display: inline-block;
+
+    padding: 5px 13px;
+
+    border:
+        1px solid #e6abc0;
+
+    border-radius: 999px;
+
+    color: #d35c84;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    background:
+        rgba(255,255,255,.7);
+}
+
+.hero-content h1 {
+
+    margin: 20px 0 20px;
+
+    font-size:
+        clamp(54px, 9vw, 110px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
+
+    color: #3b2730;
+}
+
+.hero-content p {
+
+    max-width: 590px;
+
+    color: #806873;
+
+    font-size: 16px;
+
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   02 作者的不同游戏
+========================================================= */
+
+.author-games {
+
+    background: #fff;
+
+    padding-top: 75px;
+}
+
+.game-slider {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    touch-action: pan-y;
+
+    box-shadow:
+        0 20px 60px
+        rgba(206,88,132,.12);
+}
+
+.slider-track {
+
+    display: flex;
+
+    transition:
+        transform .55s
+        cubic-bezier(.4,0,.2,1);
+}
+
+.game-slide {
+
+    flex: 0 0 100%;
+
+    height: 390px;
+
+    padding: 45px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    position: relative;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.game-slide::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(45,19,30,.86),
+            rgba(45,19,30,.08)
+        );
+}
+
+.slide-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    max-width: 650px;
+}
+
+.slide-content small {
+
+    letter-spacing: 3px;
+
+    font-size: 10px;
+
+    opacity: .75;
+}
+
+.slide-content h3 {
+
+    font-size: 42px;
+
+    margin: 4px 0;
+}
+
+.slide-content p {
+
+    color: #f8e8ee;
+
+    font-size: 14px;
+}
+
+.slider-controls {
+
+    position: absolute;
+
+    right: 22px;
+
+    bottom: 22px;
+
+    display: flex;
+
+    gap: 8px;
+
+    z-index: 10;
+}
+
+.slider-button {
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,.5);
+
+    background:
+        rgba(255,255,255,.16);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: .2s;
+}
+
+.slider-button:hover {
+
+    background: white;
+
+    color: #e45d8a;
+}
+
+.slider-dots {
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    gap: 6px;
+
+    z-index: 10;
+}
+
+.dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    border: 0;
+
+    background:
+        rgba(255,255,255,.4);
+
+    cursor: pointer;
+}
+
+.dot.active {
+
+    width: 23px;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+
+/* =========================================================
+   03 游戏作者
+========================================================= */
+
+.developer {
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8fb,
+            #fff
+        );
+}
+
+.developer-box {
+
+    display: grid;
+
+    grid-template-columns: 145px 1fr;
+
+    gap: 28px;
+
+    padding: 32px;
+
+    background: white;
+
+    border:
+        1px solid #f0d8e2;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 50px
+        rgba(205,92,133,.08);
+}
+
+.developer-avatar {
+
+    width: 135px;
+    height: 135px;
+
+    border-radius: 28px;
+
+    background:
+        url(
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=85"
+        )
+        center / cover;
+
+    border: 5px solid #fff1f6;
+}
+
+.developer-info h3 {
+
+    font-size: 28px;
+}
+
+.developer-info p {
+
+    max-width: 720px;
+
+    color: #846c77;
+
+    margin: 8px 0 20px;
+}
+
+
+/* =========================================================
+   作者唯一主按钮
+========================================================= */
+
+.developer-main-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px 24px;
+
+    border-radius: 999px;
+
+    background: #ea628f;
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.developer-main-button:hover {
+
+    background: #d94e7c;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   作者展开五个链接
+========================================================= */
+
+.expand-area {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height .5s ease;
+}
+
+.expand-area.open {
+
+    max-height: 500px;
+
+    margin-top: 20px;
+}
+
+.expand-links {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap: 10px;
+}
+
+.expand-link {
+
+    min-height: 100px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #fff8fb;
+
+    border:
+        1px solid #f1d8e2;
+
+    border-radius: 15px;
+
+    transition: .25s;
+}
+
+.expand-link:hover {
+
+    background: #ed6794;
+
+    color: white;
+
+    transform: translateY(-4px);
+}
+
+.expand-link span {
+
+    font-size: 9px;
+
+    color: #bd91a0;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 4px;
+}
+
+.expand-link:hover span {
+
+    color: #ffe7ef;
+}
+
+
+/* =========================================================
+   04 Wiki
+========================================================= */
+
+.wiki {
+
+    background: #fff;
+
+    padding-bottom: 100px;
+}
+
+.wiki-container {
+
+    min-height: 650px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffafd,
+            #fff4f8
+        );
+
+    border:
+        2px dashed #efcbd9;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.wiki-icon {
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    color: #e76694;
+
+    font-size: 32px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(215,93,135,.12);
+
+    margin-bottom: 20px;
+}
+
+.wiki-container h3 {
+
+    font-size: 30px;
+
+    color: #412d35;
+}
+
+.wiki-container p {
+
+    max-width: 580px;
+
+    color: #927782;
+
+    margin: 10px 0 25px;
+}
+
+.wiki-placeholder {
+
+    font-size: 11px;
+
+    color: #c9a6b3;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   05 玩家二创
+========================================================= */
+
+.fanworks {
+
+    background:
+        #fff8fb;
+}
+
+.creation-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 16px;
+}
+
+.creation-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid #f0dbe4;
+
+    border-radius: 18px;
+
+    transition: .3s;
+}
+
+.creation-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(210,88,132,.12);
+}
+
+.creation-image {
+
+    height: 210px;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.creation-info {
+
+    padding: 20px;
+}
+
+.creation-type {
+
+    color: #df668f;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.creation-info h3 {
+
+    margin: 5px 0;
+
+    font-size: 19px;
+}
+
+.creation-info p {
+
+    color: #927782;
+
+    font-size: 13px;
+}
+
+.creation-author {
+
+    margin-top: 12px;
+
+    color: #d15b83;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   精选作者标题
+========================================================= */
+
+.featured-title {
+
+    margin-top: 65px;
+
+    margin-bottom: 25px;
+}
+
+.featured-title h3 {
+
+    font-size: 25px;
+}
+
+.featured-title p {
+
+    color: #987b86;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   精选作者
+   从左往右 / 三行
+========================================================= */
+
+.creator-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+}
+
+.creator-card {
+
+    position: relative;
+
+    min-height: 170px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background: white;
+
+    border:
+        1px solid #f0dbe4;
+
+    border-radius: 18px;
+
+    transition: .25s;
+
+    cursor: pointer;
+}
+
+.creator-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        #e9a4ba;
+
+    box-shadow:
+        0 12px 30px
+        rgba(216,91,133,.12);
+}
+
+.creator-avatar {
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    background-size: cover;
+
+    background-position: center;
+
+    border:
+        4px solid #fff1f6;
+
+    margin-bottom: 9px;
+}
+
+.creator-card h4 {
+
+    font-size: 15px;
+}
+
+.creator-card p {
+
+    color: #9a7d88;
+
+    font-size: 11px;
+}
+
+
+/* 头号粉丝 */
+
+.top-fan {
+
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    padding: 3px 8px;
+
+    border-radius: 999px;
+
+    background: #ffb4cf;
+
+    color: #9d365e;
+
+    font-size: 9px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   展开玩家作者
+========================================================= */
+
+.more-fans {
+
+    text-align: center;
+
+    margin-top: 25px;
+}
+
+.fan-more-panel {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition:
+        max-height .55s ease;
+}
+
+.fan-more-panel.open {
+
+    max-height: 1000px;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   06 网站作者
+========================================================= */
+
+.site-author {
+
+    background: white;
+}
+
+.site-author-box {
+
+    display: grid;
+
+    grid-template-columns: 145px 1fr;
+
+    gap: 28px;
+
+    padding: 32px;
+
+    background:
+        #fff8fb;
+
+    border:
+        1px solid #f0d8e2;
+
+    border-radius: 22px;
+}
+
+.site-avatar {
+
+    width: 135px;
+    height: 135px;
+
+    border-radius: 28px;
+
+    background:
+        url(
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85"
+        )
+        center / cover;
+
+    border: 5px solid white;
+}
+
+.site-info h3 {
+
+    font-size: 28px;
+}
+
+.site-info p {
+
+    max-width: 720px;
+
+    color: #856d78;
+
+    margin: 8px 0 20px;
+}
+
+
+/* =========================================================
+   07 其他链接
+========================================================= */
+
+.other-links {
+
+    background:
+        #fff8fb;
+}
+
+.other-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 14px;
+}
+
+.other-link {
+
+    min-height: 115px;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: white;
+
+    border:
+        1px solid #f0dbe4;
+
+    border-radius: 17px;
+
+    transition: .25s;
+}
+
+.other-link:hover {
+
+    background: #eb638f;
+
+    color: white;
+
+    transform:
+        translateY(-4px);
+}
+
+.other-link small {
+
+    color: #bc91a0;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.other-link:hover small {
+
+    color: #ffe6ee;
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+footer {
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background: white;
+
+    color: #ad8d99;
+
+    font-size: 11px;
+
+    border-top:
+        1px solid #f1dce5;
+}
+
+
+/* =========================================================
+   滚动动画
+========================================================= */
+
+.fade {
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.fade.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   平板
+========================================================= */
+
+@media(max-width: 950px) {
+
+    .nav-links {
+
+        gap: 12px;
+    }
+
+    .creator-grid {
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .expand-links {
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .other-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   手机
+========================================================= */
+
+@media(max-width: 700px) {
+
+    header,
+    .nav {
+
+        height: 60px;
+    }
+
+    .nav {
+
+        width:
+            calc(100% - 22px);
+    }
+
+    .logo {
+
+        font-size: 15px;
+
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+
+        display: none;
+    }
+
+    .container {
+
+        width:
+            calc(100% - 24px);
+    }
+
+    section {
+
+        padding: 65px 0;
+    }
+
+    .section-title {
+
+        margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+
+        font-size: 30px;
+    }
+
+
+    /* Hero */
+
+    .game-hero {
+
+        min-height: 650px;
+
+        padding-top: 60px;
+
+        background-position:
+            62% center;
+    }
+
+    .hero-content {
+
+        width:
+            calc(100% - 24px);
+    }
+
+    .hero-content h1 {
+
+        font-size: 58px;
+
+        letter-spacing:
+            -3px;
+    }
+
+    .hero-content p {
+
+        font-size: 14px;
+    }
+
+    .hero-buttons .btn {
+
+        width: 100%;
+    }
+
+
+    /* 游戏轮播 */
+
+    .game-slide {
+
+        height: 430px;
+
+        padding: 28px;
+    }
+
+    .slide-content h3 {
+
+        font-size: 31px;
+    }
+
+    .slider-controls {
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+    .slider-dots {
+
+        left: 18px;
+
+        bottom: 33px;
+    }
+
+
+    /* 作者 */
+
+    .developer-box,
+    .site-author-box {
+
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+
+        text-align: center;
+    }
+
+    .developer-avatar,
+    .site-avatar {
+
+        margin: auto;
+    }
+
+    .developer-info p,
+    .site-info p {
+
+        font-size: 13px;
+    }
+
+    .developer-main-button {
+
+        width: 100%;
+    }
+
+
+    /* 作者五个链接 */
+
+    .expand-links {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .expand-link {
+
+        min-height: 85px;
+
+        padding: 14px;
+
+        font-size: 13px;
+    }
+
+
+    /* Wiki */
+
+    .wiki-container {
+
+        min-height: 550px;
+
+        padding: 25px 18px;
+    }
+
+    .wiki-container h3 {
+
+        font-size: 25px;
+    }
+
+
+    /* 二创 */
+
+    .creation-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .creation-image {
+
+        height: 230px;
+    }
+
+
+    /* 精选作者 */
+
+    .creator-grid {
+
+        /*
+         * 手机端保持从左到右，
+         * 一行两个，自动形成三行以上
+         */
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 10px;
+    }
+
+    .creator-card {
+
+        min-height: 155px;
+
+        padding: 17px 10px;
+    }
+
+    .creator-avatar {
+
+        width: 58px;
+        height: 58px;
+    }
+
+    .top-fan {
+
+        top: 7px;
+        left: 7px;
+
+        font-size: 8px;
+
+        padding: 2px 6px;
+    }
+
+
+    /* 其他链接 */
+
+    .other-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 10px;
+    }
+
+    .other-link {
+
+        min-height: 95px;
+
+        padding: 16px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   超小屏手机
+========================================================= */
+
+@media(max-width: 380px) {
+
+    .creator-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .expand-links {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .other-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .hero-content h1 {
+
+        font-size: 51px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     顶部导航
+======================================================= -->
+
+<header>
+
+<nav class="nav">
+
+    <div class="logo">
+        GAME<span>ARCHIVE</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#game">
+                游戏
+            </a>
+        </li>
+
+        <li>
+            <a href="#developer">
+                游戏作者
+            </a>
+        </li>
+
+        <li>
+            <a href="#wiki">
+                游戏 Wiki
+            </a>
+        </li>
+
+        <li>
+            <a href="#fanworks">
+                玩家二创
+            </a>
+        </li>
+
+        <li>
+            <a href="#site-author">
+                网站作者
+            </a>
+        </li>
+
+        <li>
+            <a href="#links">
+                其他链接
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- =======================================================
+     01 游戏
+======================================================= -->
+
+<section
+    id="game"
+    class="game-hero"
+>
+
+<div class="hero-content">
+
+    <div class="hero-tag">
+        INDEPENDENT GAME
+    </div>
+
+    <h1>
+        NIGHT<br>
+        FALL
+    </h1>
+
+    <p>
+        一个关于黑暗、探索与未知世界的独立游戏。
+        玩家将在逐渐失去光明的世界中寻找真相，
+        并决定自己最终会走向哪里。
+    </p>
+
+    <div class="hero-buttons">
+
+        <a
+            href="#game-info"
+            class="btn btn-primary"
+        >
+            游戏介绍
+        </a>
+
+        <a
+            href="#wiki"
+            class="btn"
+        >
+            游戏 Wiki
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     02 作者的不同游戏
+======================================================= -->
+
+<section class="author-games">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <small>
+            MORE GAMES
+        </small>
+
+        <h2>
+            作者的其他游戏
+        </h2>
+
+    </div>
+
+
+    <div
+        class="game-slider"
+        id="gameSlider"
+    >
+
+        <div
+            class="slider-track"
+            id="sliderTrack"
+        >
+
+
+            <!-- 游戏 1 -->
+
+            <div
+                class="game-slide"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1800&q=90'
+                );
+                "
+            >
+
+                <div class="slide-content">
+
+                    <small>
+                        GAME 01
+                    </small>
+
+                    <h3>
+                        NIGHT FALL
+                    </h3>
+
+                    <p>
+                        黑暗正在吞噬这个世界，
+                        而你是最后一个寻找真相的人。
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 游戏 2 -->
+
+            <div
+                class="game-slide"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1800&q=90'
+                );
+                "
+            >
+
+                <div class="slide-content">
+
+                    <small>
+                        GAME 02
+                    </small>
+
+                    <h3>
+                        DREAM ERROR
+                    </h3>
+
+                    <p>
+                        当梦境开始影响现实，
+                        你还能分辨自己身处哪里吗？
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 游戏 3 -->
+
+            <div
+                class="game-slide"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=90'
+                );
+                "
+            >
+
+                <div class="slide-content">
+
+                    <small>
+                        GAME 03
+                    </small>
+
+                    <h3>
+                        LOST SIGNAL
+                    </h3>
+
+                    <p>
+                        一段来自未知区域的信号，
+                        将你带向无法解释的地方。
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- 游戏 4 -->
+
+            <div
+                class="game-slide"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1800&q=90'
+                );
+                "
+            >
+
+                <div class="slide-content">
+
+                    <small>
+                        GAME 04
+                    </small>
+
+                    <h3>
+                        WHITE ROOM
+                    </h3>
+
+                    <p>
+                        一间没有出口的白色房间，
+                        以及永远无法关闭的那扇门。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="slider-dots"
+            id="sliderDots"
+        ></div>
+
+
+        <div class="slider-controls">
+
+            <button
+                class="slider-button"
+                onclick="previousGame()"
+            >
+                ←
+            </button>
+
+            <button
+                class="slider-button"
+                onclick="nextGame()"
+            >
+                →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     03 游戏作者
+======================================================= -->
+
+<section
+    id="developer"
+    class="developer"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <small>
+            GAME DEVELOPER
+        </small>
+
+        <h2>
+            游戏作者
+        </h2>
+
+    </div>
+
+
+    <div class="developer-box fade">
+
+        <div class="developer-avatar"></div>
+
+
+        <div class="developer-info">
+
+            <h3>
+                游戏作者名称
+            </h3>
+
+            <p>
+                独立游戏开发者、设计师以及创作者。
+                这里可以填写作者个人介绍、创作理念、
+                开发经历等内容。
+            </p>
+
+
+            <!-- 唯一按钮 -->
+
+            <button
+                class="developer-main-button"
+                onclick="toggleDeveloperLinks()"
+                id="developerButton"
+            >
+                查看作者链接
+                <span>↓</span>
+            </button>
+
+
+            <!-- 五个链接 -->
+
+            <div
+                class="expand-area"
+                id="developerLinks"
+            >
+
+                <div class="expand-links">
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>OFFICIAL</span>
+                        作者官网
+                    </a>
+
+                    <a
+                        href="https://x.com/"
+                        target="_blank"
+                        class="expand-link"
+                    >
+                        <span>SOCIAL</span>
+                        X / Twitter
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>PORTFOLIO</span>
+                        作者作品集
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>DEVELOPMENT</span>
+                        开发日志
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>CONTACT</span>
+                        联系作者
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     04 游戏 Wiki
+======================================================= -->
+
+<section
+    id="wiki"
+    class="wiki"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <small>
+            GAME WIKI
+        </small>
+
+        <h2>
+            游戏 Wiki
+        </h2>
+
+    </div>
+
+
+    <!--
+        这里故意做得很大。
+        以后可以直接把 Wiki 页面、
+        iframe 或自己的 Wiki 系统放进来。
+    -->
+
+    <div class="wiki-container fade">
+
+        <div class="wiki-icon">
+            W
+        </div>
+
+        <h3>
+            NIGHT FALL Wiki
+        </h3>
+
+        <p>
+            世界观、角色、地点、剧情、
+            怪物、道具、隐藏事件以及玩家考据，
+            都可以在这里集中展示。
+        </p>
+
+        <div class="wiki-placeholder">
+            WIKI CONTENT AREA
+        </div>
+
+        <br>
+
+        <a
+            href="#"
+            class="btn btn-primary"
+        >
+            进入完整 Wiki
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     05 玩家二创
+======================================================= -->
+
+<section
+    id="fanworks"
+    class="fanworks"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <small>
+            COMMUNITY
+        </small>
+
+        <h2>
+            玩家二创
+        </h2>
+
+    </div>
+
+
+    <!-- 二创作品 -->
+
+    <div class="creation-grid">
+
+
+        <a
+            href="#"
+            class="creation-card fade"
+        >
+
+            <div
+                class="creation-image"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1000&q=85'
+                );
+                "
+            ></div>
+
+            <div class="creation-info">
+
+                <div class="creation-type">
+                    FAN ART
+                </div>
+
+                <h3>
+                    黑暗中的门
+                </h3>
+
+                <p>
+                    玩家根据游戏场景创作的同人作品。
+                </p>
+
+                <div class="creation-author">
+                    作者：NightWalker
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creation-card fade"
+        >
+
+            <div
+                class="creation-image"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=85'
+                );
+                "
+            ></div>
+
+            <div class="creation-info">
+
+                <div class="creation-type">
+                    THEORY
+                </div>
+
+                <h3>
+                    世界观考据
+                </h3>
+
+                <p>
+                    玩家对于游戏世界观的分析与整理。
+                </p>
+
+                <div class="creation-author">
+                    作者：Dreamer
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creation-card fade"
+        >
+
+            <div
+                class="creation-image"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1547394765-185e1e68f34e?auto=format&fit=crop&w=1000&q=85'
+                );
+                "
+            ></div>
+
+            <div class="creation-info">
+
+                <div class="creation-type">
+                    MOD
+                </div>
+
+                <h3>
+                    Community MOD
+                </h3>
+
+                <p>
+                    玩家制作的游戏扩展内容。
+                </p>
+
+                <div class="creation-author">
+                    作者：Community
+                </div>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+
+
+    <!-- 精选作者 -->
+
+    <div class="featured-title">
+
+        <h3>
+            精选作者
+        </h3>
+
+        <p>
+            玩家社区中的优秀创作者
+        </p>
+
+    </div>
+
+
+    <!--
+        CSS Grid 会从左往右排列。
+        电脑：4列 × 3行
+        平板：3列
+        手机：2列
+    -->
+
+    <div class="creator-grid">
+
+
+        <!-- 第一位：头号粉丝 -->
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div class="top-fan">
+                头号粉丝
+            </div>
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Alice
+            </h4>
+
+            <p>
+                同人画师
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                NightWalker
+            </h4>
+
+            <p>
+                MOD 制作者
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Dreamer
+            </h4>
+
+            <p>
+                世界观研究
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Hollow
+            </h4>
+
+            <p>
+                视频创作者
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Momo
+            </h4>
+
+            <p>
+                同人小说
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Void
+            </h4>
+
+            <p>
+                游戏视频
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Sakura
+            </h4>
+
+            <p>
+                美术创作
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Zero
+            </h4>
+
+            <p>
+                攻略作者
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Echo
+            </h4>
+
+            <p>
+                Lore 研究
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Luna
+            </h4>
+
+            <p>
+                同人创作者
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Raven
+            </h4>
+
+            <p>
+                MOD 创作者
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="creator-card fade"
+        >
+
+            <div
+                class="creator-avatar"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80'
+                );
+                "
+            ></div>
+
+            <h4>
+                Ash
+            </h4>
+
+            <p>
+                玩家攻略
+            </p>
+
+        </a>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     06 网站作者
+======================================================= -->
+
+<section
+    id="site-author"
+    class="site-author"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <small>
+            WEBSITE CREATOR
+        </small>
+
+        <h2>
+            网站作者
+        </h2>
+
+    </div>
+
+
+    <div class="site-author-box fade">
+
+        <div class="site-avatar"></div>
+
+
+        <div class="site-info">
+
+            <h3>
+                网站作者名称
+            </h3>
+
+            <p>
+                这里填写网站创建者的介绍。
+                可以介绍建站原因、游戏社区理念、
+                网站维护情况等。
+            </p>
+
+
+            <!-- 网站作者唯一按钮 -->
+
+            <button
+                class="developer-main-button"
+                onclick="toggleSiteLinks()"
+                id="siteButton"
+            >
+                查看网站作者链接
+                <span>↓</span>
+            </button>
+
+
+            <!-- 网站作者五个链接 -->
+
+            <div
+                class="expand-area"
+                id="siteLinks"
+            >
+
+                <div class="expand-links">
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>HOME</span>
+                        个人主页
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>SOCIAL</span>
+                        社交主页
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>PROJECT</span>
+                        其他项目
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>CONTACT</span>
+                        联系方式
+                    </a>
+
+                    <a
+                        href="#"
+                        class="expand-link"
+                    >
+                        <span>ABOUT</span>
+                        关于本站
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     07 其他链接
+======================================================= -->
+
+<section
+    id="links"
+    class="other-links"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <small>
+            EXTERNAL LINKS
+        </small>
+
+        <h2>
+            其他链接
+        </h2>
+
+    </div>
+
+
+    <div class="other-grid">
+
+
+        <a
+            href="#"
+            class="other-link"
+        >
+
+            <small>
+                OFFICIAL
+            </small>
+
+            官方网站
+
+        </a>
+
+
+        <a
+            href="https://itch.io/"
+            target="_blank"
+            class="other-link"
+        >
+
+            <small>
+                PLATFORM
+            </small>
+
+            itch.io
+
+        </a>
+
+
+        <a
+            href="#"
+            class="other-link"
+        >
+
+            <small>
+                COMMUNITY
+            </small>
+
+            Discord 社区
+
+        </a>
+
+
+        <a
+            href="#"
+            class="other-link"
+        >
+
+            <small>
+                VIDEO
+            </small>
+
+            YouTube
+
+        </a>
+
+
+        <a
+            href="#"
+            class="other-link"
+        >
+
+            <small>
+                WIKI
+            </small>
+
+            游戏 Wiki
+
+        </a>
+
+
+        <a
+            href="#"
+            class="other-link"
+        >
+
+            <small>
+                FORUM
+            </small>
+
+            玩家论坛
+
+        </a>
+
+
+        <a
+            href="https://x.com/"
+            target="_blank"
+            class="other-link"
+        >
+
+            <small>
+                SOCIAL
+            </small>
+
+            X / Twitter
+
+        </a>
+
+
+        <a
+            href="#"
+            class="other-link"
+        >
+
+            <small>
+                COMMUNITY
+            </small>
+
+            玩家社区
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     Footer
+======================================================= -->
+
+<footer>
+
+    GAME ARCHIVE · GAME WIKI · FAN COMMUNITY
+
+    <br><br>
+
+    游戏资料 · 玩家二创 · 作者作品
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   游戏轮播
+========================================================= */
+
+let currentGame = 0;
+
+const track =
+    document.getElementById("sliderTrack");
+
+const slides =
+    document.querySelectorAll(".game-slide");
+
+const dotsContainer =
+    document.getElementById("sliderDots");
+
+
+/* 创建圆点 */
+
+slides.forEach((slide, index) => {
+
+    const dot =
+        document.createElement("button");
+
+    dot.className = "dot";
+
+    dot.onclick = () => {
+
+        currentGame = index;
+
+        updateSlider();
+
+    };
+
+    dotsContainer.appendChild(dot);
+
+});
+
+
+const dots =
+    document.querySelectorAll(".dot");
+
+
+function updateSlider() {
+
+    track.style.transform =
+        `translateX(-${currentGame * 100}%)`;
+
+
+    dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentGame
+        );
+
+    });
+
+}
+
+
+function nextGame() {
+
+    currentGame++;
+
+    if(currentGame >= slides.length) {
+
+        currentGame = 0;
+
+    }
+
+    updateSlider();
+
+}
+
+
+function previousGame() {
+
+    currentGame--;
+
+    if(currentGame < 0) {
+
+        currentGame =
+            slides.length - 1;
+
+    }
+
+    updateSlider();
+
+}
+
+
+updateSlider();
+
+
+/* 自动轮播 */
+
+let autoPlay =
+    setInterval(
+        nextGame,
+        5000
+    );
+
+
+/* 鼠标进入时暂停 */
+
+const slider =
+    document.getElementById("gameSlider");
+
+slider.addEventListener(
+    "mouseenter",
+    () => {
+
+        clearInterval(autoPlay);
+
+    }
+);
+
+
+slider.addEventListener(
+    "mouseleave",
+    () => {
+
+        autoPlay =
+            setInterval(
+                nextGame,
+                5000
+            );
+
+    }
+);
+
+
+/* =========================================================
+   手机触摸滑动
+========================================================= */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+slider.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    { passive: true }
+);
+
+
+slider.addEventListener(
+    "touchend",
+    event => {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        const distance =
+            touchEndX - touchStartX;
+
+        if(Math.abs(distance) > 50) {
+
+            if(distance < 0) {
+
+                nextGame();
+
+            } else {
+
+                previousGame();
+
+            }
+
+        }
+
+    },
+    { passive: true }
+);
+
+
+/* =========================================================
+   游戏作者展开
+========================================================= */
+
+function toggleDeveloperLinks() {
+
+    const area =
+        document.getElementById(
+            "developerLinks"
+        );
+
+    const button =
+        document.getElementById(
+            "developerButton"
+        );
+
+    area.classList.toggle("open");
+
+
+    if(area.classList.contains("open")) {
+
+        button.innerHTML =
+            "收起作者链接 ↑";
+
+    } else {
+
+        button.innerHTML =
+            "查看作者链接 ↓";
+
+    }
+
+}
+
+
+/* =========================================================
+   网站作者展开
+========================================================= */
+
+function toggleSiteLinks() {
+
+    const area =
+        document.getElementById(
+            "siteLinks"
+        );
+
+    const button =
+        document.getElementById(
+            "siteButton"
+        );
+
+    area.classList.toggle("open");
+
+
+    if(area.classList.contains("open")) {
+
+        button.innerHTML =
+            "收起网站作者链接 ↑";
+
+    } else {
+
+        button.innerHTML =
+            "查看网站作者链接 ↓";
+
+    }
+
+}
+
+
+/* =========================================================
+   滚动动画
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .1
+        }
+    );
+
+
+document
+    .querySelectorAll(".fade")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+/* =========================================================
+   防止锚点跳转闪烁
+========================================================= */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            function(event) {
+
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                if(target) {
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
+
+            }
+        );
+
+    });
+
+</script>
+
+</body>
+</html>
+```
